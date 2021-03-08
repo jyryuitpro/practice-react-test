@@ -5,11 +5,12 @@
     <title>Title</title>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
     <div id="root"></div>
-    <script>
-        const e = React.createElement;
+    <script type="text/babel">
+        // const e = React.createElement;
 
         class LikeButton extends React.Component {
             constructor(props) {
@@ -22,13 +23,16 @@
 
             // 화면
             render() {
-                return e('button', { onClick: () => { this.setState({ liked: true }) }, type: 'submit' }, this.state.liked === true ? 'Liked' : 'Like');
+                // JSX (JS + XML)
+                return <button type="submit" onClick={ () => { this.setState({ liked: true })}}>{this.state.liked === true ? 'Liked' : 'Like'}</button>;
+                // return e('button', { onClick: () => { this.setState({ liked: true }) }, type: 'submit' }, this.state.liked === true ? 'Liked' : 'Like');
                 // <button onclick="() => { console.log('clicked'); }" type="submit">Like</button>
             }
         }
     </script>
-    <script>
-        ReactDOM.render(e(LikeButton), document.querySelector('#root'));
+    <script type="text/babel">
+        // ReactDOM.render(e(LikeButton), document.querySelector('#root'));
+        ReactDOM.render(<div><LikeButton /><LikeButton /><LikeButton /><LikeButton /></div>, document.querySelector('#root'));
     </script>
 </body>
 </html>
