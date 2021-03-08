@@ -14,10 +14,16 @@
         class LikeButton extends React.Component {
             constructor(props) {
                 super(props);
+                // 상태(데이터)
+                this.state = {
+                    liked: false,
+                };
             }
 
+            // 화면
             render() {
-                return e('button', null, 'Like'); // <button>Like</button>
+                return e('button', { onClick: () => { this.setState({ liked: true }) }, type: 'submit' }, this.state.liked === true ? 'Liked' : 'Like');
+                // <button onclick="() => { console.log('clicked'); }" type="submit">Like</button>
             }
         }
     </script>
@@ -26,3 +32,5 @@
     </script>
 </body>
 </html>
+
+<!--바뀔 여지가 있는 부분이 상태(state)입니다.-->
