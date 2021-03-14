@@ -13,7 +13,7 @@
         // GuGuDan이라는 컴포넌트를 만들어두고,
         class GuGuDan extends React.Component {
             constructor(props) {
-                super();
+                super(props);
                 // 바뀌는 건 state!
                 this.state = {
                     // state의 처음 값
@@ -27,9 +27,9 @@
             render() {
                 return (
                     <div>
-                        <div>{this.state.first}곱하기{this.state.second}는?</div>
+                        <div>{this.state.first} 곱하기 {this.state.second}는?</div>
                         <form>
-                            <input type="number" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })}/>
+                            <input type="number" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} />
                             <button>입력!</button>
                         </form>
                         <div>{this.state.result}</div>
@@ -46,3 +46,4 @@
 </html>
 
 <!--바뀔 여지가 있는 부분이 상태(state)입니다.-->
+<!--input.onChange = (e) => { console.log(e.target.value) }-->
